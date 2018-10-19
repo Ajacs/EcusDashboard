@@ -39,12 +39,12 @@ class DollarDashboard extends Component {
 
     handleDayPickerChange(event, { value }) {
         const { api: { default_currency } } = config;
-        let date = null;
-        let endDate = null;
+        let date = moment(new Date());
+        let endDate = date;
         if (value !== 1)  {
-            date = moment(new Date()).subtract(value, 'days');
+            date = date.subtract(value, 'days');
             endDate = moment(new Date());
-        }
+        } 
         serviceCall(date, endDate).end((err, res) => {
             if (err) {
                 console.log('We need to do something with this error');
@@ -52,8 +52,9 @@ class DollarDashboard extends Component {
             const values = Object.values(res.body[default_currency]).reduce((prev, current) => {
                 return prev + current;
             });
+            const dataLength = value !== 1 ? value + 1 : value;
             this.setState({
-                average: Number(values/(value + 1)).toFixed(2),
+                average: Number(values/(dataLength)).toFixed(2),
                 selectedDays: value,
                 dashboardData: res.body[default_currency]
             });

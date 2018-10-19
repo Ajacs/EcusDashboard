@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { 
+  Button, 
+  Container, 
+  Grid, 
+  Image 
+} from 'semantic-ui-react'
+import PageHeader from './components/pageHeader/pageHeader';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Container >
+        <PageHeader />
+        <Grid>
+        <Grid.Row columns={3}>
+          <Grid.Column width="three">
+            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+          </Grid.Column>
+          <Grid.Column width="ten">
+            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+          </Grid.Column>
+          <Grid.Column width="three">
+            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
+          </Grid.Column>
+        </Grid.Row>
+        </Grid>
+      </Container>
     );
   }
 }

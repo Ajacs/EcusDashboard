@@ -4,12 +4,16 @@ import { Menu, Button, Icon } from 'semantic-ui-react';
 
 const headerStyle = {
     marginTop: '2%'
+};
+
+const menuHeaderStyle = {
+    paddingRight: '40px'
 }
 
 const PageHeader = ({username}) => {
     return (
         <Menu size="large" style={headerStyle}>
-            <Menu.Item header>SPA proyecto de prueba</Menu.Item>
+            <Menu.Item header style={menuHeaderStyle}>SPA proyecto de prueba</Menu.Item>
 
             <Menu.Item name='inicio' active={false} />
             <Menu.Item position="right">
